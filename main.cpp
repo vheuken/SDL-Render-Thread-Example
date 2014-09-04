@@ -72,7 +72,6 @@ void Renderer::renderJob()
         }
         if (mRenderer != nullptr)
         {
-            std::cout << "RENDERING!" << std::endl;
             render();
         }
     }
@@ -80,15 +79,24 @@ void Renderer::renderJob()
 
 int main()
 {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
+
     auto window = SDL_CreateWindow("Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_RESIZABLE);
 
     Renderer r(window);
 
+    while (window)
+    {
+        SDL_Event event;
 
-    SDL_Delay(5000);
-
-    SDL_DestroyWindow(window);
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                SDL_DestroyWindow(window);
+            }
+        }
+    }
 
     SDL_Quit();
 
