@@ -10,7 +10,6 @@ public:
 private:
     void renderJob();
     void render();
-    void initGL();
 
     SDL_GLContext mContext;
     SDL_Renderer* mRenderer;
