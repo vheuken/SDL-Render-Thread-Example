@@ -3,6 +3,7 @@ SDL-Render-Thread-Example
 
 I was having trouble getting SDL2 to render on a separate thread, so I made this little example program. Hopefully people will find it useful.
 
+This was neither intentionally cleaned nor significantly documented. This is not intended to be a major learning tool, but rather an example of working code.
 
 License
 =========================
