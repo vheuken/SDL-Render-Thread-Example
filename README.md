@@ -3,6 +3,9 @@ SDL-Render-Thread-Example
 
 I was having trouble getting SDL2 to render on a separate thread, so I made this little example program. Hopefully people will find it useful.
 
+
+License
+=========================
 Copyright (c) 2014 Vincent Heuken
 
 This software is provided 'as-is', without any express or implied
