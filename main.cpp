@@ -2,6 +2,12 @@
 #include <thread>
 #include <SDL2/SDL.h>
 
+#ifdef _WIN32
+	#define NOMINMAX 1
+	#define WIN32_LEAN_AND_MEAN
+	#include <Windows.h>
+#endif // _WIN32
+
 class Renderer
 {
 public:
@@ -117,7 +123,7 @@ void Renderer::renderJob()
     }
 }
 
-int main()
+int main(int argc, char **argv)
 {
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
 
@@ -144,3 +150,13 @@ int main()
 
     return 0;
 }
+
+#ifdef __MINGW32__
+
+// MinGW expects a WinMain().
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevIns, LPSTR lpszArgument, int iShow)
+{
+	return main(0, nullptr);
+}
+
+#endif // __MINGW32__
