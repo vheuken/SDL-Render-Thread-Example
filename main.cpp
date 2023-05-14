@@ -76,6 +76,11 @@ void Renderer::render()
     // Clear
     if (SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255) < 0)
     {
+        std::cerr << "Failed to set draw color: " << SDL_GetError() << std::endl;
+    }
+
+    if (SDL_RenderClear(mRenderer) < 0)
+    {
         std::cerr << "Error clearing: " << SDL_GetError() << std::endl;
     }
 
